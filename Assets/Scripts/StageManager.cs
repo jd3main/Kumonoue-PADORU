@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class StageManager : MonoBehaviour
 {
     public float moveSpeed = 10;
     public Vector3 moveDirection = Vector3.left;
-    public List<GameObject> stages;
+    public List<StageConfig> stages;
     public float stageWidth = 20;
-
+    public float difficulty = 0;
     public Vector3 lastOffset = Vector3.zero;
 
     List<GameObject> stageInstances = new List<GameObject>();
@@ -17,20 +18,20 @@ public class StageManager : MonoBehaviour
 
     private void Start()
     {
-        GenStages(5);
+        GenInitialStages(5);
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        Move(Time.fixedDeltaTime);
-        CleanOldStage();
+        Move(Time.deltaTime);
+        CleanAndGen();
     }
 
-    public void GenStages(int n)
+    public void GenInitialStages(int n)
     {
         for (int i = 0; i < n; i++)
         {
-            GenNext();
+            GenStage(0);
         }
     }
 
@@ -47,26 +48,38 @@ public class StageManager : MonoBehaviour
             {
                 stage.transform.position += moveDirection * stageWidth;
             }
-            GenNext();
         }
     }
 
-    public void CleanOldStage()
+    public void CleanAndGen()
     {
         while (stageInstances[0].transform.position.x < -2 * stageWidth)
         {
             Destroy(stageInstances[0]);
             stageInstances.RemoveAt(0);
+            GenStage(difficulty);
         }
     }
 
-    public void GenNext()
+    public void GenStage(float difficulty)
     {
-        int index = Random.Range(0, stages.Count);
-        GameObject newStage = Instantiate(stages[index]);
+        List<StageConfig> validStages = stages.Where(
+            s => (s.minDifficulty <= difficulty && difficulty <= s.maxDifficulty)).ToList();
+
+        int index = Random.Range(0, validStages.Count);
+        GameObject newStage = Instantiate(validStages[index].prefab);
         newStage.transform.position = lastOffset;
         newStage.transform.parent = this.transform;
         lastOffset -= moveDirection * stageWidth;
         stageInstances.Add(newStage);
     }
+}
+
+
+[System.Serializable]
+public class StageConfig
+{
+    public GameObject prefab;
+    public float minDifficulty = 0;
+    public float maxDifficulty = float.PositiveInfinity;
 }

@@ -12,15 +12,8 @@ public class GameManager : MonoBehaviour
     public static bool gameRunning = false;
 
     private static float _score;
-    public static float score
-    {
-        get => _score;
-        set
-        {
-            if (gameRunning)
-                _score = value;
-        }
-    }
+    public static float score { get=>_score; private set { _score = value; } }
+
 
     public StageManager stageManager;
     public GameObject player;
@@ -31,8 +24,9 @@ public class GameManager : MonoBehaviour
     public float maxGameSpeed = 2;
     public float timeToMaxSpeed = 90;
  
+    public float gameTime => Time.time - gameStartTime;
     private float gameStartTime = 0;
- 
+
 
     private void Awake()
     {
@@ -48,27 +42,49 @@ public class GameManager : MonoBehaviour
     {
         if (gameRunning)
         {
-            Time.timeScale = TimeScaleFunction(Time.time-gameStartTime);
+            Time.timeScale = TimeScaleFunction(gameTime);
+            stageManager.difficulty = DifficultyFunction(gameTime);
         }
     }
 
 
-    public void InitGame()
-    {
-        score = 0;
-    }
 
     public IEnumerator StartGame()
     {
-        for (int i = 1; i <= 10; i++)
+        InitGame();
+        float n = 5;
+        for (int i = 1; i <= n; i++)
         {
-            Time.timeScale = i/10;
-            yield return new WaitForSecondsRealtime(timeBeforeStart*0.1f);
+            Time.timeScale = i/n;
+            yield return new WaitForSecondsRealtime(timeBeforeStart/n);
         }
 
         Time.timeScale = 1;
         gameRunning = true;
         gameStartTime = Time.fixedTime;
+    }
+
+    public void InitGame()
+    {
+        ResetScore();
+    }
+
+    public static bool AddScore(float value)
+    {
+        if (gameRunning)
+        {
+            score += value;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public static void ResetScore()
+    {
+        score = 0;
     }
 
     public void EndGame()
@@ -82,5 +98,9 @@ public class GameManager : MonoBehaviour
     public float TimeScaleFunction(float t)
     {
         return 1 + t/timeToMaxSpeed * (maxGameSpeed-1);
+    }
+    public float DifficultyFunction(float t)
+    {
+        return t;
     }
 }

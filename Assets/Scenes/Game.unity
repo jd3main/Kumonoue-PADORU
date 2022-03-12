@@ -155,7 +155,12 @@ MonoBehaviour:
   moveSpeed: 10
   moveDirection: {x: -1, y: 0, z: 0}
   stages:
-  - {fileID: 9136301785614080427, guid: 2cf8f048ae11f934b9f365a8f73ce2d7, type: 3}
+  - prefab: {fileID: 9136301785614080427, guid: 2cf8f048ae11f934b9f365a8f73ce2d7, type: 3}
+    minDifficulty: 0
+    maxDifficulty: 5
+  - prefab: {fileID: 9136301785614080427, guid: 20b11bac19c4ad946965650249737af1, type: 3}
+    minDifficulty: 3
+    maxDifficulty: Infinity
   stageWidth: 17
   lastOffset: {x: 0, y: 0, z: 0}
 --- !u!4 &242214260
@@ -800,8 +805,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1880957974}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.35528094, y: -3.6088, z: 0}
-  m_LocalScale: {x: 40.38, y: 2.97255, z: 1}
+  m_LocalPosition: {x: 0.0531, y: -3.6088, z: 0}
+  m_LocalScale: {x: 20.83814, y: 2.97255, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
@@ -960,8 +965,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2045114508}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.1032, y: 0.4526, z: 0}
-  m_LocalScale: {x: 16.883621, y: 11.09534, z: 1}
+  m_LocalPosition: {x: -6.5878, y: 0.0202, z: 0}
+  m_LocalScale: {x: 5.853552, y: 10.231013, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
@@ -1028,10 +1033,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32579310ebbd0c6429461ad4fcf9e2e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  giftPrefab: {fileID: 2479787910648276820, guid: 1f854b9d437be4648bd9be2025c94f7c, type: 3}
   rb: {fileID: 2072493545}
+  giftPrefab: {fileID: 2479787910648276820, guid: 1f854b9d437be4648bd9be2025c94f7c, type: 3}
   jumpVel: 5
   onGround: 0
+  maxJumpingTime: 1
+  jumpingTime: 0
 --- !u!50 &2072493545
 Rigidbody2D:
   serializedVersion: 4

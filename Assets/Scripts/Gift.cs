@@ -14,10 +14,13 @@ public class Gift : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
+    private void Start()
+    {
+        rb.velocity = Vector2.down * dropSpeed;
+    }
+
     private void FixedUpdate()
     {
-        rb.position += Vector2.down * dropSpeed * Time.fixedDeltaTime * Time.timeScale;
-
         if (rb.position.y < minY)
         {
             Destroy(this.gameObject);
@@ -26,7 +29,7 @@ public class Gift : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        GameManager.score += 1;
+        GameManager.AddScore(1);
         Debug.Log(collision.gameObject);
         Destroy(this.gameObject);
     }

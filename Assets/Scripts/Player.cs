@@ -5,11 +5,14 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Player : MonoBehaviour
 {
-    public GameObject giftPrefab;
+    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private GameObject giftPrefab;
 
-    [SerializeField] Rigidbody2D rb;
     public float jumpVel = 5;
-    public bool onGround = false;
+    public int onGround = 0;
+
+    public float maxJumpingTime = 1;
+    public float jumpingTime;
 
 
     private void Start()
@@ -29,34 +32,43 @@ public class Player : MonoBehaviour
         {
             Drop();
         }
-    }
 
-    private void FixedUpdate()
-    {
         if (Input.GetKey(KeyCode.UpArrow))
         {
             Jump();
+        }
+        if (Input.GetKeyUp(KeyCode.UpArrow))
+        {
+            StopJumping();
         }
     }
 
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        onGround = true;
+        onGround++;
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        onGround = false;
+        onGround--;
     }
 
     public void Jump()
     {
-        if (onGround)
+        if (onGround > 0)
         {
-            rb.velocity = Vector2.up * jumpVel;
+            float risingSpeed = jumpVel * (1 - jumpingTime / maxJumpingTime);
+            if (risingSpeed > 0)
+                rb.velocity = Vector2.up * risingSpeed;
         }
     }
+
+    public void StopJumping()
+    {
+        rb.velocity = Vector2.zero;
+    }
+
     private void Drop()
     {
         GameObject gift = Instantiate(giftPrefab);
