@@ -12,8 +12,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
-  productName: Kumonoue
+  companyName: zakoneko
+  productName: Kumonoue_Padoru
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -40,12 +40,12 @@ PlayerSettings:
     width: 1
     height: 1
   m_SplashScreenLogos: []
-  m_VirtualRealitySplashScreen: {fileID: 0}
+  m_VirtualRealitySplashScreen: {fileID: 2800000, guid: 9cfe0ba5009f00c40ba8211608bada04, type: 3}
   m_HolographicTrackingLossScreen: {fileID: 0}
   defaultScreenWidth: 1920
   defaultScreenHeight: 1080
-  defaultScreenWidthWeb: 960
-  defaultScreenHeightWeb: 600
+  defaultScreenWidthWeb: 1120
+  defaultScreenHeightWeb: 630
   m_StereoRenderingPath: 0
   m_ActiveColorSpace: 0
   m_MTRendering: 1
@@ -134,7 +134,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 1.0
+  bundleVersion: 0.0
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -265,7 +265,14 @@ PlayerSettings:
   AndroidMinifyDebug: 0
   AndroidValidateAppBundleSize: 1
   AndroidAppBundleSizeToValidate: 150
-  m_BuildTargetIcons: []
+  m_BuildTargetIcons:
+  - m_BuildTarget: 
+    m_Icons:
+    - serializedVersion: 2
+      m_Icon: {fileID: 2800000, guid: 9cfe0ba5009f00c40ba8211608bada04, type: 3}
+      m_Width: 128
+      m_Height: 128
+      m_Kind: 0
   m_BuildTargetPlatformIcons: []
   m_BuildTargetBatching: []
   m_BuildTargetGraphicsJobs:
@@ -312,7 +319,9 @@ PlayerSettings:
     Android: 1
     iPhone: 1
     tvOS: 1
-  m_BuildTargetGroupLightmapEncodingQuality: []
+  m_BuildTargetGroupLightmapEncodingQuality:
+  - m_BuildTarget: WebGL
+    m_EncodingQuality: 1
   m_BuildTargetGroupLightmapSettings: []
   m_BuildTargetNormalMapEncoding: []
   playModeTestRunnerEnabled: 0
@@ -463,7 +472,9 @@ PlayerSettings:
   switchPlayerConnectionEnabled: 1
   switchUseNewStyleFilepaths: 0
   switchUseMicroSleepForYield: 1
+  switchEnableRamDiskSupport: 0
   switchMicroSleepForYieldTime: 25
+  switchRamDiskSpaceSize: 12
   ps4NPAgeRating: 12
   ps4NPTitleSecret: 
   ps4NPTrophyPackPath: 
@@ -551,7 +562,7 @@ PlayerSettings:
   webGLDebugSymbols: 0
   webGLEmscriptenArgs: 
   webGLModulesDirectory: 
-  webGLTemplate: APPLICATION:Default
+  webGLTemplate: APPLICATION:Minimal
   webGLAnalyzeBuildSize: 0
   webGLUseEmbeddedResources: 0
   webGLCompressionFormat: 0
@@ -576,7 +587,8 @@ PlayerSettings:
   gcIncremental: 1
   assemblyVersionValidation: 1
   gcWBarrierValidation: 0
-  apiCompatibilityLevelPerPlatform: {}
+  apiCompatibilityLevelPerPlatform:
+    WebGL: 3
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
   metroPackageName: 2D_BuiltInRenderer

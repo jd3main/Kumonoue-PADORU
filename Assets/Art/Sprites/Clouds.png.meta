@@ -1,16 +1,31 @@
 fileFormatVersion: 2
-guid: 3c35c5218fd7eca4d99e1e6857a01f8f
+guid: 9cfe0ba5009f00c40ba8211608bada04
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3406467470453720687
-    second: chimney_top_0
+      213: 2669142961033076756
+    second: Clouds_0
   - first:
-      213: -6840222813746412435
-    second: chimney_top_1
+      213: -3967920315399815954
+    second: Clouds_1
   - first:
-      213: -1953855166001662440
-    second: chimney_top_2
+      213: -1749161583622989117
+    second: Clouds_2
+  - first:
+      213: -5240784962635489071
+    second: Clouds_3
+  - first:
+      213: 1327514091082312007
+    second: Clouds_4
+  - first:
+      213: 5063102313881138252
+    second: Clouds_5
+  - first:
+      213: 7433681639430268716
+    second: Clouds_6
+  - first:
+      213: -8284803859559965258
+    second: Clouds_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -52,7 +67,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -112,7 +127,91 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: chimney_top_0
+      name: Clouds_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 100
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4106c1f9163ba0520800000000000000
+      internalID: 2669142961033076756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clouds_1
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 100
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eecb98ffe7d1fe8c0800000000000000
+      internalID: -3967920315399815954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clouds_2
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 100
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ca5461aecab9b7e0800000000000000
+      internalID: -1749161583622989117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clouds_3
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 100
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d027e5e7ddf447b0800000000000000
+      internalID: -5240784962635489071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clouds_4
       rect:
         serializedVersion: 2
         x: 0
@@ -120,24 +219,20 @@ TextureImporter:
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: 5, y: 50}
-        - {x: 5, y: -50}
-        - {x: 50, y: -50}
-        - {x: 50, y: 50}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f66415bbd14364f20800000000000000
-      internalID: 3406467470453720687
+      spriteID: 749694948074c6210800000000000000
+      internalID: 1327514091082312007
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: chimney_top_1
+      name: Clouds_5
       rect:
         serializedVersion: 2
         x: 100
@@ -145,20 +240,20 @@ TextureImporter:
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d644f1a8795a211a0800000000000000
-      internalID: -6840222813746412435
+      spriteID: c44f750aab0c34640800000000000000
+      internalID: 5063102313881138252
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: chimney_top_2
+      name: Clouds_6
       rect:
         serializedVersion: 2
         x: 200
@@ -166,18 +261,35 @@ TextureImporter:
         width: 100
         height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape:
-      - - {x: -5, y: -50}
-        - {x: -5, y: 50}
-        - {x: -50, y: 50}
-        - {x: -50, y: -50}
+      physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 816b8e7141382e4e0800000000000000
-      internalID: -1953855166001662440
+      spriteID: c27a593d01eb92760800000000000000
+      internalID: 7433681639430268716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Clouds_7
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bd9425d8c6760d80800000000000000
+      internalID: -8284803859559965258
       vertices: []
       indices: 
       edges: []

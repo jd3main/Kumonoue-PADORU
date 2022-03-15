@@ -155,10 +155,10 @@ RectTransform:
   m_Father: {fileID: 2014795247}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 342}
-  m_SizeDelta: {x: 947.2698, y: 238.2012}
+  m_AnchorMin: {x: 0, y: 0.5546626}
+  m_AnchorMax: {x: 1, y: 0.88365424}
+  m_AnchoredPosition: {x: 0, y: 0.000015259}
+  m_SizeDelta: {x: 0.000061035, y: -0.0000076294}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &309023334
 MonoBehaviour:
@@ -180,7 +180,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Kumonoue
+  m_text: 'KUMONOUENI
+
+    PADORU PADORU'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -207,7 +209,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 144
+  m_fontSize: 55.85
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -365,17 +367,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1362438947}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.0011451485, w: 0.9999994}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1803670018}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.131}
+  m_AnchorMin: {x: 0.13455418, y: 0.16154364}
+  m_AnchorMax: {x: 0.883, y: 0.8384562}
+  m_AnchoredPosition: {x: 0.00008392334, y: 0.0002632141}
+  m_SizeDelta: {x: -0.1754, y: -0.56992}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1362438949
 MonoBehaviour:
@@ -397,7 +399,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Play
+  m_text: 'Start
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -424,13 +428,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 144
+  m_fontSize: 67
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 144
-  m_fontStyle: 0
+  m_fontStyle: 16
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -488,7 +492,7 @@ GameObject:
   - component: {fileID: 1803670019}
   - component: {fileID: 1803670022}
   m_Layer: 5
-  m_Name: PlayButton
+  m_Name: StartButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -509,10 +513,10 @@ RectTransform:
   m_Father: {fileID: 2014795247}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 659.5234, y: 297.2888}
+  m_AnchorMin: {x: 0.25, y: 0.2105844}
+  m_AnchorMax: {x: 0.75, y: 0.5}
+  m_AnchoredPosition: {x: 0.00050354004, y: 0}
+  m_SizeDelta: {x: -0.00097656, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1803670019
 MonoBehaviour:
