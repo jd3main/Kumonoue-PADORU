@@ -10,14 +10,16 @@ public class Player : MonoBehaviour
 
     public float jumpVel = 5;
     public int onGround = 0;
-
     public float maxJumpingTime = 1;
     public float jumpingTime;
+    public float dropCD = 1;
+
+    private float lastDropTime = float.NegativeInfinity;
 
 
     private void Start()
     {
-        GameManager.instance.OnGameEnd.AddListener(OnGameEnd);
+        GameManager.Instance.OnGameEnd.AddListener(OnGameEnd);
     }
 
     private void Reset()
@@ -58,9 +60,7 @@ public class Player : MonoBehaviour
     {
         if (onGround > 0)
         {
-            float risingSpeed = jumpVel * (1 - jumpingTime / maxJumpingTime);
-            if (risingSpeed > 0)
-                rb.velocity = Vector2.up * risingSpeed;
+            rb.velocity = Vector2.up * jumpVel;
         }
     }
 
@@ -71,8 +71,12 @@ public class Player : MonoBehaviour
 
     private void Drop()
     {
-        GameObject gift = Instantiate(giftPrefab);
-        gift.transform.position = this.transform.position;
+        if (lastDropTime + dropCD <= Time.time)
+        {
+            GameObject gift = Instantiate(giftPrefab);
+            gift.transform.position = this.transform.position;
+            lastDropTime = Time.time;
+        }
     }
 
     private void OnGameEnd()

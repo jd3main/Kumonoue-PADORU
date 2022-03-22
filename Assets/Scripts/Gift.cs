@@ -30,7 +30,6 @@ public class Gift : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         GameManager.AddScore(1);
-        Debug.Log(collision.gameObject);
         Destroy(this.gameObject);
     }
 }

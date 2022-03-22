@@ -8,7 +8,7 @@ public class DeathZone : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            GameManager.instance.EndGame();
+            GameManager.Instance.EndGame();
         }
     }
 }

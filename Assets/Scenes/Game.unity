@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fc0be50b6c3fde44bf10cdd957ad272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  moveSpeed: 5
   moveDirection: {x: -1, y: 0, z: 0}
   stages:
   - prefab: {fileID: 9136301785614080427, guid: 2cf8f048ae11f934b9f365a8f73ce2d7, type: 3}
@@ -355,7 +355,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36.4
+  m_fontSize: 42.95
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -563,14 +563,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 866c404326d97e142adcabc10070fad1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: 0
   stageManager: {fileID: 242214259}
   player: {fileID: 2072493541}
   OnGameEnd:
     m_PersistentCalls:
-      m_Calls: []
-  timeBeforeStart: 2
-  maxGameSpeed: 2
-  timeToMaxSpeed: 90
+      m_Calls:
+      - m_Target: {fileID: 522008201}
+        m_TargetAssemblyTypeName: ScoreUI, Assembly-CSharp
+        m_MethodName: OnGameOver
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  timeBeforeStart: 0
+  timeToHalfSpeedUp: 60
+  maxGameSpeed: 3
 --- !u!1 &939877375
 GameObject:
   m_ObjectHideFlags: 0
@@ -1056,10 +1069,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 2072493545}
   giftPrefab: {fileID: 2479787910648276820, guid: 1f854b9d437be4648bd9be2025c94f7c, type: 3}
-  jumpVel: 5
+  jumpVel: 10
   onGround: 0
   maxJumpingTime: 1
   jumpingTime: 0
+  dropCD: 0.5
 --- !u!50 &2072493545
 Rigidbody2D:
   serializedVersion: 4
@@ -1074,8 +1088,8 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_AngularDrag: 0
+  m_GravityScale: 2
   m_Material: {fileID: 0}
   m_Interpolate: 2
   m_SleepingMode: 0

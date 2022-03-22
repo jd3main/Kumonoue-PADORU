@@ -18,7 +18,7 @@ public class StageManager : MonoBehaviour
 
     private void Start()
     {
-        GenInitialStages(5);
+        GenInitialStages(3);
     }
 
     private void Update()

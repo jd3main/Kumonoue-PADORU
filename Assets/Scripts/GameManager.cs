@@ -8,83 +8,87 @@ using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance;
-    public static bool gameRunning = false;
+    public static GameManager Instance;
 
-    private static float _score;
-    public static float score { get=>_score; private set { _score = value; } }
-
-
+    public float score;
     public StageManager stageManager;
     public GameObject player;
-
     public UnityEvent OnGameEnd;
 
+    [Min(0)]
     public float timeBeforeStart = 2;
-    public float maxGameSpeed = 2;
-    public float timeToMaxSpeed = 90;
- 
-    public float gameTime => Time.time - gameStartTime;
+
+    [Min(1)]
+    public float timeToHalfSpeedUp = 60;
+
+    [Min(1)] public float maxGameSpeed = 3;
+
     private float gameStartTime = 0;
+    private bool gameRunning = false;
+
+
+    public static float GameTime => Time.time - Instance.gameStartTime;
+    public static float Score { get => Instance.score; }
+    public static bool GameRunning { get => Instance.gameRunning; set { Instance.gameRunning = value; } }
 
 
     private void Awake()
     {
-        instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     private void Start()
     {
-        StartCoroutine(StartGame());
+        StartGame();
     }
 
     private void Update()
     {
         if (gameRunning)
         {
-            Time.timeScale = TimeScaleFunction(gameTime);
-            stageManager.difficulty = DifficultyFunction(gameTime);
+            Time.timeScale = GetGameSpeed();
+            stageManager.difficulty = GetDifficulty();
         }
     }
 
 
 
-    public IEnumerator StartGame()
+    public void StartGame()
     {
-        InitGame();
-        float n = 5;
-        for (int i = 1; i <= n; i++)
-        {
-            Time.timeScale = i/n;
-            yield return new WaitForSecondsRealtime(timeBeforeStart/n);
-        }
+        StartCoroutine(_StartGame());
+    }
+
+    public IEnumerator _StartGame()
+    {
+        score = 0;
+        Time.timeScale = 0;
+
+        yield return new WaitForSecondsRealtime(timeBeforeStart);
 
         Time.timeScale = 1;
         gameRunning = true;
-        gameStartTime = Time.fixedTime;
+        gameStartTime = Time.time;
     }
 
-    public void InitGame()
-    {
-        ResetScore();
-    }
 
     public static bool AddScore(float value)
     {
-        if (gameRunning)
+        if (Instance.gameRunning)
         {
-            score += value;
+            Instance.score += value;
             return true;
         }
         else
         {
             return false;
         }
-    }
-
-    public static void ResetScore()
-    {
-        score = 0;
     }
 
     public void EndGame()
@@ -95,12 +99,14 @@ public class GameManager : MonoBehaviour
         OnGameEnd.Invoke();
     }
 
-    public float TimeScaleFunction(float t)
+    public float GetGameSpeed()
     {
-        return 1 + t/timeToMaxSpeed * (maxGameSpeed-1);
+        float t = GameTime;
+        float x = t / timeToHalfSpeedUp;
+        return 1 + (maxGameSpeed - 1) * (1 - 1/(Mathf.Pow(x, 2)+1));
     }
-    public float DifficultyFunction(float t)
+    public float GetDifficulty()
     {
-        return t;
+        return GameTime;
     }
 }
